@@ -35,32 +35,29 @@ public class testCase1_RegisterOfUser_StepDef {
 
     @Then("User validate that {string} is visible")
     public void user_validate_that_is_visible(String topHeader) {
-       Assert.assertEquals(signUpPage.topHeaderExpected(), topHeader);
+        Assert.assertEquals(signUpPage.topHeaderExpected(), topHeader);
 
     }
 
     @And("User enter {string} ,{string},{string},{string}")
-    public void userEnterPassword(String password,String day, String month, String year) {
-        signUpPage.setUpSignOnInformation(driver,password,day,month,year);
+    public void userEnterPassword(String password, String day, String month, String year) {
+        signUpPage.setUpSignOnInformation(driver, password, day, month, year);
 
     }
 
-    @And("User enter {string},{string},{string},{string},{string},{string},{string},{string},{string},")
-    public void userEnterFirstNameLastNameCompanyAddressAddressStateCityZipCodeMobileNumber( String firstName, String lastName, String company,
-                                                                                             String address, String address2, String country, String state,
-                                                                                             String city, String zipCode, String mobileNumber) {
-        signUpPage.setUpSignOnInformationPart2(driver,firstName,lastName,company,address,address2,country,state,city,zipCode,mobileNumber);
+    @And("User enter {string},{string},{string},{string},{string},{string},{string},{string},{string},{string},")
+    public void userEnterFirstNameLastNameCompanyAddressAddressCountryStateCityZipCodeMobileNumber(String firstName, String lastName, String company,
+                                                                                                   String address, String address2, String country, String state,
+                                                                                                   String city, String zipCode, String mobileNumber) throws InterruptedException {
+        signUpPage.setUpSignOnInformationPart2(driver, firstName, lastName, company, address, address2, country, state, city, zipCode, mobileNumber);
+
     }
 
 
     @Then("User click to Create Account button and verify {string} is visible")
-    public void user_click_to_create_account_button_and_verify_is_visible(String string) {
-
-    }
-
-    @Then("User click continue button and verify that {string} is visible")
-    public void user_click_continue_button_and_verify_that_is_visible(String string) {
-
+    public void user_click_to_create_account_button_and_verify_is_visible(String titleAccountCre) {
+        Assert.assertEquals(signUpPage.expectedAccountCreated(), titleAccountCre);
+        signUpPage.continueButton();
     }
 
 

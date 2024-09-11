@@ -51,6 +51,10 @@ public class SignUpPage {
     WebElement mobileNumber;
     @FindBy(xpath = "//button[@data-qa='create-account']")
     WebElement createButton;
+    @FindBy(xpath = "//h2[@class='title text-center']//b[.='Account Created!']")
+    WebElement titleAccountCreated;
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
+    WebElement continueButton;
 
     public String topHeaderExpected() {
         return BrowserUtils.getText(topHeader);
@@ -64,6 +68,7 @@ public class SignUpPage {
         BrowserUtils.selectBy(this.month, month, "value");
         BrowserUtils.selectBy(this.year, year, "value");
         newwsLetterCheckBox.click();
+        BrowserUtils.scrollWithJS(driver,newwsLetterCheckBox);
         optin.click();
 
 
@@ -72,8 +77,7 @@ public class SignUpPage {
     public void setUpSignOnInformationPart2(WebDriver driver,
                                             String firstName, String lastName, String company,
                                             String address, String address2, String country, String state,
-                                            String city, String zipCode, String mobileNumber) {
-        BrowserUtils.scrollWithJS(driver, this.firstName);
+                                            String city, String zipCode, String mobileNumber) throws InterruptedException {
         this.firstName.sendKeys(firstName);
         this.lastName.sendKeys(lastName);
         this.company.sendKeys(company);
@@ -85,8 +89,16 @@ public class SignUpPage {
         this.city.sendKeys(city);
         this.zipcode.sendKeys(zipCode);
         this.mobileNumber.sendKeys(mobileNumber);
+        createButton.click();
+        Thread.sleep(2000);
 
 
     }
+public String expectedAccountCreated(){
+        return BrowserUtils.getText(titleAccountCreated);
+}
 
+public  void continueButton(){
+    continueButton.click();
+}
 }
