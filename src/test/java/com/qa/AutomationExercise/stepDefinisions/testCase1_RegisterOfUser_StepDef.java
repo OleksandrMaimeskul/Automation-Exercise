@@ -2,6 +2,7 @@ package com.qa.AutomationExercise.stepDefinisions;
 
 import com.qa.AutomationExercise.pages.SignUpPage;
 import com.qa.AutomationExercise.pages.TestCase1_RegisterOfUserPage;
+import com.qa.AutomationExercise.pages.homePage;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -16,6 +17,8 @@ public class testCase1_RegisterOfUser_StepDef {
     WebDriver driver = DriverHelper.getDriver();
     TestCase1_RegisterOfUserPage testCaseOne = new TestCase1_RegisterOfUserPage(driver);
     SignUpPage signUpPage = new SignUpPage(driver);
+
+    homePage homePage = new homePage(driver);
 
     @Given("User verify that {string} page is visible successfully")
     public void user_verify_that_page_is_visible_successfully(String homePage) {
@@ -60,6 +63,13 @@ public class testCase1_RegisterOfUser_StepDef {
         signUpPage.continueButton();
     }
 
+    @And("the user clicks the Delete Account button")
+    public void theUserClicksTheDeleteAccountButton() {
+        homePage.setDeleteButton();
+    }
 
-
+    @And("the user clicks the Continue button")
+    public void theUserClicksTheContinueButton() {
+        homePage.setContinueButton();
+    }
 }

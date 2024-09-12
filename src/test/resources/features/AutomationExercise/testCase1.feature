@@ -8,6 +8,8 @@ Feature: Test case 1 from Automation Exercise
     And User enter '<password>' ,'7','7','1992'
     And User enter '<firstName>','<lastName>','<company>','<address>','<address2>','<country>','<state>','<city>','<zipCode>','<mobileNumber>',
     And User click to Create Account button and verify 'ACCOUNT CREATED!' is visible
+    And the user clicks the Delete Account button
+    And the user clicks the Continue button
     Examples:
       | name      | email                    | password | firstName | lastName  | company | address               | address2   | country|state | city    | zipCode | mobileNumber |
-      | Olehandro | adfffara@gmail.com | 12345678 | Oleksandr | Maimeskul | MyOwn   | 2611 Somewhere Street | Office 222 | United States |TX    | Houston | 77445   | 3455433454   |
+      | Olehandro | a22d232fara@gmail.com | 12345678 | Oleksandr | Maimeskul | MyOwn   | 2611 Somewhere Street | Office 222 | United States |TX    | Houston | 77445   | 3455433454   |
