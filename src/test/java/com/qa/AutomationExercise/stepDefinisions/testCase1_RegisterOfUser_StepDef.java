@@ -3,14 +3,11 @@ package com.qa.AutomationExercise.stepDefinisions;
 import com.qa.AutomationExercise.pages.SignUpPage;
 import com.qa.AutomationExercise.pages.TestCase1_RegisterOfUserPage;
 import com.qa.AutomationExercise.pages.homePage;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import utils.BrowserUtils;
 import utils.DriverHelper;
 
 public class testCase1_RegisterOfUser_StepDef {
@@ -20,10 +17,10 @@ public class testCase1_RegisterOfUser_StepDef {
 
     homePage homePage = new homePage(driver);
 
-    @Given("User verify that {string} page is visible successfully")
-    public void user_verify_that_page_is_visible_successfully(String homePage) {
-        Assert.assertEquals(testCaseOne.homePageExpected(), homePage);
-    }
+//    @Given("User verify that home page is visible successfully with color {string}")
+//    public void userVerifyThatHomePageIsVisibleSuccessfullyWithColorRgba(String homePageActualColor) {
+//        Assert.assertEquals(homePage.homePageExpectedColor(), homePageActualColor);
+//    }
 
     @And("User click on signUp_Login button and verify that {string} is visible")
     public void userClickOnSignUp_LoginButtonAndVerifyThatNewUserSignupIsVisible(String signUpText) {
@@ -32,7 +29,7 @@ public class testCase1_RegisterOfUser_StepDef {
     }
 
     @Then("User enter {string} and {string} and click SignUp button")
-    public void user_enter_and_and_click_sign_up_button(String name, String email) {
+    public void user_enter_and_and_click_sign_up_button(String name, String email) throws InterruptedException {
         testCaseOne.signUpData(name, email);
     }
 
@@ -63,13 +60,19 @@ public class testCase1_RegisterOfUser_StepDef {
         signUpPage.continueButton();
     }
 
-    @And("the user clicks the Delete Account button")
-    public void theUserClicksTheDeleteAccountButton() {
-        homePage.setDeleteButton();
+    @And("User logout by clicking button for next test")
+    public void userLogoutByClickingButtonForNextTest() {
+        homePage.setLogoutButton();
     }
 
-    @And("the user clicks the Continue button")
-    public void theUserClicksTheContinueButton() {
-        homePage.setContinueButton();
-    }
+
+
+//    @And("the user clicks the Delete Account button")
+//    public void theUserClicksTheDeleteAccountButton() {
+//        homePage.setDeleteButton();
+//    }
+//    @And("the user clicks the Continue button")
+//    public void theUserClicksTheContinueButton() {
+//        homePage.setContinueButton();
+//    }
 }

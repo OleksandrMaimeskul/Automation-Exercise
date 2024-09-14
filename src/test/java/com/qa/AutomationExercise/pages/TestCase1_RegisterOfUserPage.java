@@ -1,6 +1,5 @@
 package com.qa.AutomationExercise.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +11,7 @@ public class TestCase1_RegisterOfUserPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[@style='color: orange;']")
-    WebElement homePage;
+
     @FindBy(linkText = "Signup / Login")
     WebElement signUpLoginButton;
     @FindBy(xpath = "//h2[.='New User Signup!']")
@@ -26,18 +24,17 @@ public class TestCase1_RegisterOfUserPage {
     @FindBy(xpath = "//button[@data-qa='signup-button']")
     WebElement signUpButton;
 
-    public String homePageExpected(){
-        return BrowserUtils.getText(homePage);
-    }
+
     public void setSignUpLoginButton(){
         signUpLoginButton.click();
     }
     public String signUpTextExpected(){
         return BrowserUtils.getText(newSignUpText);
     }
-    public void signUpData(String name, String email){
+    public void signUpData(String name, String email) throws InterruptedException {
         this.nameInput.sendKeys(name);
         this.emailInput.sendKeys(email);
+        Thread.sleep(1000);
         signUpButton.click();
     }
 }
