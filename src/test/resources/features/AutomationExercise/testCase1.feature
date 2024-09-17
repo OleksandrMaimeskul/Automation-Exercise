@@ -1,3 +1,4 @@
+@regression
 Feature: Test case 1 from Automation Exercise
 
   Scenario Outline: Register User
@@ -14,3 +15,4 @@ Feature: Test case 1 from Automation Exercise
     Examples:
       | name      | email                    | password | firstName | lastName  | company | address               | address2   | country|state | city    | zipCode | mobileNumber |
       | Olehandro | WhatIsWonderfulEmail2ForTest@gmail.com | 12345678 | Oleksandr | Maimeskul | MyOwn   | 2611 Somewhere Street | Office 222 | United States |TX    | Houston | 77445   | 3455433454   |
+

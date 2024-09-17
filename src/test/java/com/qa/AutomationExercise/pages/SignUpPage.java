@@ -56,6 +56,9 @@ public class SignUpPage {
     @FindBy(xpath = "//a[@data-qa='continue-button']")
     WebElement continueButton;
 
+    @FindBy(xpath = "//p[.='Email Address already exist!']")
+    WebElement existingEmailMessage;
+
     public String topHeaderExpected() {
         return BrowserUtils.getText(topHeader);
     }
@@ -101,4 +104,8 @@ public String expectedAccountCreated(){
 public  void continueButton(){
     continueButton.click();
 }
+    public String existingEmail(){
+        return BrowserUtils.getText(this.existingEmailMessage);
+    }
 }
+
